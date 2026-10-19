@@ -45,19 +45,19 @@ Lab11 使用 OpenCV 的 HOG + SVM 行人偵測器、非極大值抑制，以及�
 
 ## Lab 資料夾導覽
 
-| 實驗 | 資料夾 |
-| --- | --- |
-| Lab1 | [lab1](lab1/) |
-| Lab2 | [lab2](lab2/) |
-| Lab3–4 | [lab3-4](lab3-4/) |
-| Lab5 | [Lab5](Lab5/) |
-| Lab6 | [Lab6](Lab6/) |
-| Lab7 | [Lab7](Lab7/) |
-| Lab8 | [Lab8](Lab8/) |
-| Lab9 | [Lab9](Lab9/) |
-| Lab10 | [Lab10](Lab10/) |
-| Lab11 | [Lab11](Lab11/) |
-| Lab12 | [Lab12](Lab12/) |
+| 實驗 | 資料夾 | 內容與技術摘要 |
+| --- | --- | --- |
+| Lab1 | [lab1](lab1/) | **建置 ARM 交叉編譯環境**：在 Ubuntu 從原始碼建置 Binutils、GCC 與 Glibc，設定 Sysroot（目標系統的標頭檔與函式庫目錄），將 C 程式編譯成 ARM 執行檔，並用 `file` 確認架構。 |
+| Lab2 | [lab2](lab2/) | **遠端除錯 ARM 程式**：建置交叉除錯器 GDB，以 QEMU 模擬執行 ARM 程式；透過遠端連線設定中斷點、單步執行與查看變數，練習在開發電腦追蹤目標程式的執行過程。 |
+| Lab3–4 | [lab3-4](lab3-4/) | **製作可開機的精簡 Linux 系統**：使用 Buildroot 為 Raspberry Pi 3 建置核心與根檔案系統，透過 `menuconfig`、BusyBox 配置主機名稱與工具，產生 SD 卡映像檔，再以 `dd` 燒錄並進行開機測試。 |
+| Lab5 | [Lab5](Lab5/) | **配置 SD 卡開機與系統分割區**：使用 `fdisk` 調整分割區，配置 FAT32 開機區與 Linux 根檔案系統區，放入韌體、核心及裝置樹檔案，練習格式化、掛載與系統映像寫入。 |
+| Lab6 | [Lab6](Lab6/) | **備份 Linux 根檔案系統**：以 `dd` 建立映像檔，透過 `losetup` 將檔案當成虛擬磁碟，建立並掛載 ext4 檔案系統；使用 `rsync` 複製系統內容並保留權限與連結，準備可供還原的備份。 |
+| Lab7 | [Lab7](Lab7/) | **理解並新增系統呼叫**：用 `objdump` 反組譯觀察程式如何進入 Linux 核心，加入自訂 system call 後重新編譯核心，再以 C 測試程式與 `dmesg` 檢查回傳值及核心訊息。 |
+| Lab8 | [Lab8](Lab8/) | **實作 Linux 字元裝置驅動**：編寫可載入的核心模組，註冊字元裝置並建立 `/dev/demo`，將應用程式的開啟、讀取、寫入與關閉操作對應到驅動函式；用 `insmod`、`rmmod` 與 `dmesg` 測試。 |
+| Lab9 | [Lab9](Lab9/) | **用程式控制實體 LED**：以 C 與 libgpiod 操作 Raspberry Pi 的 GPIO4，讓 LED 每隔一秒切換亮滅；練習 GPIO 輸出設定、LED／電阻接線，以及程式結束時釋放硬體資源。 |
+| Lab10 | [Lab10](Lab10/) | **控制四位數七段顯示器**：以 C、libgpiod 和 GPIO 的 CLK／DIO 訊號控制 TM1637，實作數字編碼、資料傳送及清空顯示；完成每秒減 100 的倒數，並延伸為學號跑馬燈。 |
+| Lab11 | [Lab11](Lab11/) | **影像處理與行人／車輛偵測**：使用 Python、OpenCV 與 NumPy 進行縮放、灰階及對比增強，以 HOG + SVM 偵測行人、NMS 合併重疊框，搭配級聯分類器偵測車輛，輸出標示結果的圖片與影片。 |
+| Lab12 | [Lab12](Lab12/) | **車牌定位與字元辨識**：測試 OpenALPR，並以 Python／OpenCV 串接邊緣偵測、輪廓定位、透視校正、二值化、字元切割與模板比對；針對誤判加入字元標準化、旋轉比對及車牌格式限制。 |
 
 Lab3 與 Lab4 沿用雲端的合併資料夾。可直接查看 [車牌辨識程式](Lab12/lab12/plate_recog.py) 與 [行人／車輛偵測程式](Lab11/lab11/demo.py)。
 
